@@ -1,0 +1,22 @@
+"use client";
+import { useState } from "react";
+import { ActivityIcon, CalendarIcon, CheckIcon, ClipboardIcon, UsersIcon } from "@/components/icons";
+import { candidates } from "@/lib/demo-data";
+
+export default function AdminPage(){
+  const [filter,setFilter]=useState("Tous"); const rows=candidates.filter(c=>filter==="Tous"||c.status===filter);
+  return <section className="adminPage">
+    <div className="appPageTitle"><div><p className="overline">PILOTAGE OPÉRATIONNEL</p><h1>Tableau de bord</h1><p>Mercredi 1 octobre · vue de démonstration</p></div><div className="actionRow"><button className="button buttonSecondary">Exporter</button><button className="button buttonPrimary">+ Créer une mission</button></div></div>
+    <div className="adminKpis">
+      <article><span className="kpiIcon"><UsersIcon/></span><div><small>Profils actifs</small><strong>600</strong><span className="positive">+8,4 % ce mois</span></div><svg viewBox="0 0 100 30" aria-hidden="true"><polyline points="0,26 14,22 28,24 42,15 56,18 70,10 84,12 100,4"/></svg></article>
+      <article><span className="kpiIcon"><CalendarIcon/></span><div><small>Missions ouvertes</small><strong>37</strong><span>428 planifiées à terme</span></div><svg viewBox="0 0 100 30" aria-hidden="true"><polyline points="0,22 14,20 28,18 42,19 56,13 70,14 84,8 100,10"/></svg></article>
+      <article><span className="kpiIcon"><CheckIcon/></span><div><small>Dossiers complets</small><strong>92 %</strong><span className="positive">objectif ≥ 90 %</span></div><div className="ring" style={{"--p":"92%"} as React.CSSProperties}><span>92</span></div></article>
+      <article className="attentionKpi"><span className="kpiIcon"><ClipboardIcon/></span><div><small>À traiter aujourd'hui</small><strong>3</strong><span>1 attestation mineur</span></div><span className="attentionDot"/></article>
+    </div>
+    <div className="adminColumns">
+      <article className="panelPro chartPanel"><div className="panelProHeader"><div><p className="overline">ACTIVITÉ</p><h2>Inscriptions et candidatures</h2></div><select aria-label="Période"><option>30 derniers jours</option></select></div><div className="chartMock"><div className="chartY"><span>120</span><span>80</span><span>40</span><span>0</span></div><div className="bars">{[38,55,48,72,64,84,70,96,89,105,98,116].map((h,i)=><div key={i}><span style={{height:`${h/1.25}%`}}/><small>{i%3===0?["S1","S2","S3","S4"][i/3]:""}</small></div>)}</div></div><div className="chartLegend"><span><i className="legendPrimary"/>Bénévoles</span><span><i className="legendSoft"/>CRI / lauréats</span></div></article>
+      <article className="panelPro statusPanel"><div className="panelProHeader"><div><p className="overline">QUALITÉ DES DOSSIERS</p><h2>État de complétude</h2></div></div><div className="donutWrap"><div className="donut"><div><strong>92%</strong><span>complets</span></div></div><ul><li><span><i className="dotGreen"/>Complets</span><strong>552</strong></li><li><span><i className="dotAmber"/>À compléter</span><strong>36</strong></li><li><span><i className="dotGrey"/>À vérifier</span><strong>12</strong></li></ul></div><div className="miniAlert"><ActivityIcon/><div><strong>Aucune anomalie majeure</strong><span>Dernier contrôle il y a 4 min</span></div></div></article>
+    </div>
+    <article className="panelPro"><div className="panelProHeader"><div><p className="overline">TRAITEMENT</p><h2>Dossiers récents</h2></div><select value={filter} onChange={e=>setFilter(e.target.value)}><option>Tous</option><option>Validé</option><option>À instruire</option><option>Attestation requise</option></select></div><div className="tableWrap"><table className="proTable"><thead><tr><th>Personne</th><th>Profil</th><th>Complétude</th><th>Statut</th><th>Dernière action</th><th/></tr></thead><tbody>{rows.map((c,i)=><tr key={c.name}><td><div className="personCell"><span>{c.name.split(" ").map(x=>x[0]).join("")}</span><strong>{c.name}</strong></div></td><td>{c.type}</td><td><div className="completionCell"><div className="progressBar"><span style={{width:`${c.completeness}%`}}/></div><small>{c.completeness}%</small></div></td><td><span className={`statusBadge ${c.status==="Validé"?"ok":c.status.includes("Attestation")?"warn":"info"}`}>{c.status}</span></td><td>{["Il y a 8 min","Il y a 22 min","Hier, 18:42","Hier, 15:10"][i]}</td><td><button className="rowMenu" aria-label={`Actions pour ${c.name}`}>•••</button></td></tr>)}</tbody></table></div></article>
+  </section>
+}
