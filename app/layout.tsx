@@ -6,7 +6,7 @@ import { DemoSessionProvider } from "@/components/demo-session";
 
 export const metadata: Metadata = {
   title: "Bourges 2028 — Démonstrateur CRI & Bénévoles",
-  description: "Démonstrateur professionnel : parcours bénévoles, administration, sécurité, résilience et écoconception.",
+  description: "Démonstrateur professionnel : parcours métiers, RGPD, accessibilité, sécurité, résilience et écoconception.",
   robots: { index: false, follow: false }
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="contenu" className="shell">{children}</main>
         <footer className="footer">
           <div><strong>Bourges 2028 · démonstrateur technique</strong><p>Réponse au marché n° 2026-43 — CRI & Bénévoles</p></div>
-          <div className="footerRight"><span>Données fictives</span><span>·</span><span>Next.js / React / TypeScript</span><span>·</span><a href="/about">À propos & limites</a></div>
+          <div className="footerRight"><span>Données fictives</span><span>·</span><a href="/accessibilite">Accessibilité</a><span>·</span><a href="/confidentialite">RGPD & confidentialité</a><span>·</span><a href="/about">À propos & limites</a></div>
         </footer>
         </DemoSessionProvider>
       </body>

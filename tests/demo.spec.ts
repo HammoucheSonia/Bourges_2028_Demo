@@ -20,3 +20,19 @@ test("la bascule A vers B est démontrable", async ({ page }) => {
   await page.getByRole("button", { name: /simuler la perte du nœud a/i }).click();
   await expect(page.getByText(/nœud b sert 100 % du trafic/i)).toBeVisible({ timeout: 10000 });
 });
+
+test("trust pages are reachable", async ({ page }) => {
+  await page.goto("/accessibilite");
+  await expect(page.getByRole("heading", { name: /parcours utilisables/i })).toBeVisible();
+  await page.goto("/confidentialite");
+  await expect(page.getByRole("heading", { name: /minimiser les données/i })).toBeVisible();
+});
+
+test("benevole direct route can switch context", async ({ page }) => {
+  await page.goto("/connexion");
+  await page.getByText("Nora Benali").click();
+  await page.goto("/benevole");
+  const switchButton = page.getByRole("button", { name: /ouvrir la démo comme bénévole/i });
+  if (await switchButton.isVisible()) await switchButton.click();
+  await expect(page.getByRole("heading", { name: /bonjour camille/i })).toBeVisible();
+});

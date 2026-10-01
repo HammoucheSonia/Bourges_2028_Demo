@@ -60,4 +60,13 @@ Le dépôt livré ne contient aucun secret ni donnée Bourges 2028 réelle. La b
 - Disponibilités modifiables et complétude recalculée.
 - Coffre documentaire, préférences, sessions et sécurité.
 - Agenda avec filtres, ajout d’événement et interactions.
-# Bourges_2028_Demo
+
+## Pages de confiance ajoutées
+- `/accessibilite` : démarche RGAA, contrôles visibles, recette proposée et démonstration du focus clavier.
+- `/confidentialite` : RGPD, privacy by design/default, minimisation, droits des personnes et registre simplifié.
+
+## Vérification avant remise
+1. Tester `/`, `/connexion`, `/benevole`, `/candidat`, `/laureat`, `/jury`, `/profil`, `/agenda`, `/admin`, `/security`, `/incident`, `/eco`, `/accessibilite`, `/confidentialite`, `/about` en navigation privée.
+2. Vérifier `npm run typecheck` puis `npm run build`.
+3. Vérifier au clavier : lien d’évitement, menu, formulaires, modales et boutons.
+4. Garder le déploiement HTTPS disponible pendant toute la période d’analyse de l’offre.

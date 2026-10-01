@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ActivityIcon, ArrowRightIcon, CalendarIcon, CheckIcon, ClipboardIcon, DashboardIcon, LeafIcon, ShieldIcon, UsersIcon } from "@/components/icons";
+import { ActivityIcon, ArrowRightIcon, CalendarIcon, CheckIcon, ClipboardIcon, DashboardIcon, LeafIcon, LockIcon, ShieldIcon, UsersIcon } from "@/components/icons";
 
 const proofCards = [
   {href:"/connexion", icon:<UsersIcon/>, kicker:"Profils & rôles", title:"Quatre espaces métiers réellement distincts", text:"Bénévole, candidat CRI, lauréat CRI et jury avec droits, statuts, informations et actions adaptés."},
@@ -11,6 +11,8 @@ const proofCards = [
   {href:"/incident", icon:<ActivityIcon/>, kicker:"Résilience", title:"Une panne rendue visible et maîtrisée", text:"Simulation de health checks et de bascule A → B avec chronologie d'incident et preuves observables."},
   {href:"/mission", icon:<ClipboardIcon/>, kicker:"Zéro papier", title:"Une mission, de l'inscription au check-in", text:"Parcours complet sans impression obligatoire : briefing, acceptation, présence et retour."},
   {href:"/eco", icon:<LeafIcon/>, kicker:"Écoconception", title:"Mesurer avant d'affirmer", text:"Budgets de performance, suivi avant/après et indicateurs compatibles avec une démarche RGESN."},
+  {href:"/accessibilite", icon:<CheckIcon/>, kicker:"Accessibilité", title:"Intégrer le RGAA dans la recette", text:"Clavier, focus, structure sémantique et méthode de non-régression, sans prétendre à une conformité non auditée."},
+  {href:"/confidentialite", icon:<LockIcon/>, kicker:"RGPD", title:"La protection des données par défaut", text:"Minimisation, droits des personnes, préférences optionnelles désactivées et traçabilité des traitements."},
 ];
 
 export default function HomePage() {
@@ -25,7 +27,7 @@ export default function HomePage() {
           <Link className="button buttonSecondary" href="/about">Voir la méthode et les limites</Link>
         </div>
         <div className="trustRow">
-          <div><strong>9</strong><span>scénarios testables</span></div>
+          <div><strong>11</strong><span>scénarios testables</span></div>
           <div><strong>4</strong><span>profils métiers</span></div>
           <div><strong>100 %</strong><span>données fictives</span></div>
         </div>
