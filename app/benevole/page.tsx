@@ -12,7 +12,7 @@ export default function BenevolePage(){
     <aside className="appSidebar">
       <div className="profileBlock"><div className="profileAvatar">CM</div><div><strong>Camille Martin</strong><span>Bénévole</span></div></div>
       <div className="profileProgress"><div><span>Profil complété</span><strong>92 %</strong></div><div className="progressBar"><span style={{width:"92%"}}/></div></div>
-      <nav className="sideNav" aria-label="Espace bénévole"><Link className="active" href="/benevole"><UsersIcon/>Mes missions</Link><Link href="/profil"><CheckIcon/>Mon profil</Link><Link href="/agenda"><CalendarIcon/>Mon agenda</Link></nav>
+      <nav className="sideNav" aria-label="Espace bénévole"><Link href="/">← Accueil</Link><Link className="active" href="/benevole"><UsersIcon/>Mes missions</Link><Link href="/profil"><CheckIcon/>Mon profil</Link><Link href="/agenda"><CalendarIcon/>Mon agenda</Link></nav>
       <div className="sideHelp"><strong>Besoin d'aide ?</strong><p>Une question sur une mission ou votre profil ?</p><button className="button buttonTertiary">Contacter l'équipe</button></div>
     </aside>
     <section className="appContent" id="missions">

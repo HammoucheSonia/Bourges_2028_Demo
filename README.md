@@ -70,3 +70,10 @@ Le dépôt livré ne contient aucun secret ni donnée Bourges 2028 réelle. La b
 2. Vérifier `npm run typecheck` puis `npm run build`.
 3. Vérifier au clavier : lien d’évitement, menu, formulaires, modales et boutons.
 4. Garder le déploiement HTTPS disponible pendant toute la période d’analyse de l’offre.
+
+## V8 — navigation et parcours mission
+- `/mission` est une route dédiée avec briefing opérationnel, consignes, contact coordonnateur, acceptation et check-in simulé.
+- Le logo Bourges 2028 et le lien « Accueil » permettent de revenir à `/` depuis chaque écran.
+- Sur mobile/tablette, le bouton de menu ouvre une navigation réellement fonctionnelle.
+- Le lien d’évitement « Aller au contenu » cible `#contenu`, rendu focalisable (`tabIndex=-1`) pour un comportement clavier testable.
+- Les tests Playwright couvrent la route `/mission`, le retour à l’accueil, le lien d’évitement et le cloisonnement d’accès par rôle.

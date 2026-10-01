@@ -1,11 +1,20 @@
 import { expect, test } from "@playwright/test";
 
-test("navigation clavier minimale", async ({ page }) => {
+test("le lien d'évitement place le focus sur le contenu principal", async ({ page }) => {
   await page.goto("/");
   await page.keyboard.press("Tab");
   await expect(page.getByText("Aller au contenu")).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page.locator("#contenu")).toBeVisible();
+  await expect(page.locator("#contenu")).toBeFocused();
+});
+
+test("navigation clavier vers la mission et retour accueil", async ({ page }) => {
+  await page.goto("/benevole");
+  await expect(page.getByRole("link", { name: /accueil/i }).first()).toBeVisible();
+  await page.getByRole("link", { name: /voir le briefing/i }).click();
+  await expect(page.getByRole("heading", { name: /accueil public/i })).toBeVisible();
+  await expect(page.getByText(/briefing opérationnel/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: /^accueil$/i }).first()).toBeVisible();
 });
 
 test("la démo explicite ses limites", async ({ page }) => {

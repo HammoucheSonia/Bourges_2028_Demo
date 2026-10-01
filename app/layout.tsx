@@ -17,7 +17,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <DemoSessionProvider>
         <DemoBanner />
         <SiteHeader />
-        <main id="contenu" className="shell">{children}</main>
+        <main id="contenu" className="shell" tabIndex={-1}>{children}</main>
         <footer className="footer">
           <div><strong>Bourges 2028 · démonstrateur technique</strong><p>Réponse au marché n° 2026-43 — CRI & Bénévoles</p></div>
           <div className="footerRight"><span>Données fictives</span><span>·</span><a href="/accessibilite">Accessibilité</a><span>·</span><a href="/confidentialite">RGPD & confidentialité</a><span>·</span><a href="/about">À propos & limites</a></div>
